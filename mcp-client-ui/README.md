@@ -28,8 +28,15 @@ yarn start
 yarn watch
 ```
 
+* package
+
+```
+yarn package
+```
 ***
 ### blog 
+
+https://zenn.dev/link/comments/ec8035cb830e93
 
 ***
 
