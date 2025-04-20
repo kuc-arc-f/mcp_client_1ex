@@ -9,8 +9,11 @@
  update  :
 
 ***
-mcp client , example
+mcp client example , electron react
 
 ***
 ### blog 
 
+https://zenn.dev/link/comments/ec8035cb830e93
+
+***
