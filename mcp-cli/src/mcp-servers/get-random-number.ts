@@ -1,0 +1,20 @@
+import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+
+const server = new McpServer({
+  name: "get-random-example",
+  version: "1.0.0",
+});
+
+server.tool("get-random-number", "ランダムな数字を返す。", async () => {
+  const value = Math.floor(Math.random() * 9) + 1;
+
+  return {
+    content: [
+      {
+        type: "text",
+        text: "Result : " + String(value),
+      }
+    ],
+  };
+});
+export const GetRandomNumber = server;
