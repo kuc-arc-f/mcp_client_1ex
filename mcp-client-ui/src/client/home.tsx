@@ -12,6 +12,7 @@ import { DirectServerTransport } from "../lib/direct-transport.js";
 import { TimeServer } from "../mcp-servers/get-current-time";
 import { TimeServer } from "../mcp-servers/get-current-time";
 import { Mcp2exTestServer } from "../mcp-servers/mcp-2ex-test.js";
+import { Mcp3useCreate } from "../mcp-servers/mcp-3use-create";
 import ApiUtil from "../lib/ApiUtil";
 
 import type { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
@@ -200,7 +201,9 @@ function Home() {
         dangerouslyAllowBrowser: true,
       });
       const model = selectModel;
-      const mcpTools = await getMcpTools([TimeServer, Mcp2exTestServer]);
+      const mcpTools = await getMcpTools([
+        TimeServer, Mcp2exTestServer, Mcp3useCreate
+      ]);
       await query(openai, model, mcpTools, inText);
       await mcpTools.close();
       elem.value = "";
