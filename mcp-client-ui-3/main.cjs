@@ -7,6 +7,9 @@ const { google } = require('@ai-sdk/google');
 const { addTodo } = require('./src/tools/addTodo.cjs');
 const { getNumber } = require('./src/tools/getNumber.cjs');
 const { addItemPrice } = require('./src/tools/addItemPrice.cjs');
+const { getWorkList } = require('./src/tools/getWorkList.cjs');
+const { saveWorkHour } = require('./src/tools/saveWorkHour.cjs');
+
 require('dotenv').config({ path: path.join(__dirname, '.env') });
 
 console.log("API_URL=", process.env.API_URL);
@@ -122,7 +125,7 @@ function createWindow () {
       const result = await generateText({
         model: google(MODEL_NAME),
         tools: {
-          getNumber , addTodo, addItemPrice ,
+          getNumber , addTodo, addItemPrice , getWorkList , saveWorkHour ,
         },
         maxSteps: 5,
         messages: [{ role: "user", content: input }],

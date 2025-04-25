@@ -6,9 +6,6 @@ import { generateText, tool } from "ai";
 import chatUtil from './lib/chatUtil';
 import LibConfig from './lib/LibConfig';
 
-//import { TimeServer } from "../mcp-servers/get-current-time";
-//import { Mcp2exTestServer } from "../mcp-servers/mcp-2ex-test.js";
-//import { Mcp3useCreate } from "../mcp-servers/mcp-3use-create";
 import ApiUtil from "../lib/ApiUtil";
 
 console.log("#Home.");
@@ -31,26 +28,6 @@ function Home() {
   const [isLoading, setIsLoading] = useState(false);
   const [isReceive, setIsReceive] = useState(false);
 
-  const containsNewline = (str) => /\r\n|\r|\n/.test(str);
-
-  useEffect(() => {
-    (async () => {
-      try{
-//const API_KEY= process.env.GOOGLE_GENERATIVE_AI_API_KEY;
-//console.log("API_KEY=", API_KEY);
-
-        //const model = chatUtil.getModelName(LibConfig.STORAGE_KEY_LLM_MODEL);
-        //console.log("model=", model);
-        //selectModel = model;
-        //const res = await ollama.list();
-        //console.log(res.models);
-        //setModels(res.models);
-      }catch(e){
-        console.erros(e);
-      }
-    })()
-  }, []);
-
   const chatStart = async function(){
     try{    
       setText("");
@@ -58,22 +35,22 @@ function Home() {
       setIsDownload(false);
       const elem = document.getElementById("input_text");
       let inText = "";
+      let htm = "";
       if(elem){
         inText = elem.value;
       };
       console.log("inText=", inText);
-      console.log("selectModel=", selectModel);
       if(!inText){ return; }
       setSendText(inText);
       setIsLoading(true);
       setIsReceive(true);
 
-      const model = selectModel;
       const res = await window.mySendMcp.sendMcp(inText);
       console.log(res);
 
       elem.value = "";
-      setText(res);
+      htm = marked.parse(res);
+      setText(htm);
       setIsLoading(false);
       setIsDownload(true);      
     } catch(e){
