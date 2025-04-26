@@ -9,6 +9,7 @@ const { getNumber } = require('./src/tools/getNumber.cjs');
 const { addItemPrice } = require('./src/tools/addItemPrice.cjs');
 const { getWorkList } = require('./src/tools/getWorkList.cjs');
 const { saveWorkHour } = require('./src/tools/saveWorkHour.cjs');
+const { addTask } = require('./src/tools/addTask.cjs');
 
 require('dotenv').config({ path: path.join(__dirname, '.env') });
 
@@ -125,7 +126,7 @@ function createWindow () {
       const result = await generateText({
         model: google(MODEL_NAME),
         tools: {
-          getNumber , addTodo, addItemPrice , getWorkList , saveWorkHour ,
+          getNumber , addTodo, addItemPrice , getWorkList , saveWorkHour , addTask ,
         },
         maxSteps: 5,
         messages: [{ role: "user", content: input }],
