@@ -5,6 +5,7 @@ const fsPromises = require('fs').promises;
 const { generateText, tool } = require('ai');
 const { google } = require('@ai-sdk/google');
 const { addTodo } = require('./src/tools/addTodo.cjs');
+const { getTodoList } = require('./src/tools/getTodoList.cjs');
 const { getNumber } = require('./src/tools/getNumber.cjs');
 const { addItemPrice } = require('./src/tools/addItemPrice.cjs');
 const { getWorkList } = require('./src/tools/getWorkList.cjs');
@@ -126,7 +127,8 @@ function createWindow () {
       const result = await generateText({
         model: google(MODEL_NAME),
         tools: {
-          getNumber , addTodo, addItemPrice , getWorkList , saveWorkHour , addTask ,
+          getNumber , addItemPrice , getWorkList , saveWorkHour , addTask ,
+          addTodo, getTodoList ,
         },
         maxSteps: 5,
         messages: [{ role: "user", content: input }],
