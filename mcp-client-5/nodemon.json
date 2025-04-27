@@ -1,0 +1,6 @@
+{
+  "watch": ["src"],
+  "ext": "ts,tsx,js,jsx", 
+  "ignore": ["src/lib/**/*.txt"],
+  "exec": "npm run build && node ./dist/index.js"
+}
