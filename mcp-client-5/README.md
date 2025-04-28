@@ -6,12 +6,17 @@
 
  date    : 2025/04/27
  
- update  :
+ update  : 2025/04/28
 
 ***
 
 mcp client + express + react ,  example
 
 ***
-### blog 
+* start
+
+```
+npm run dev
+```
+***
 
