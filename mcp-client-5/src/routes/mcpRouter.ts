@@ -1,9 +1,14 @@
 import express from 'express';
 import { generateText, tool } from 'ai';
 import { google }  from '@ai-sdk/google';
+
 import { getNumber } from '../tools/getNumber';
 import { getTodoList } from '../tools/getTodoList';
 import { addTodo } from '../tools/addTodo';
+import { addItemPrice } from '../tools/addItemPrice';
+import { saveWorkHour } from '../tools/saveWorkHour';
+import { getWorkList } from '../tools/getWorkList';
+import { addTask } from '../tools/addTask';
 
 const router = express.Router();
 const MODEL_NAME = "gemini-2.0-flash";
@@ -18,7 +23,8 @@ router.post('/send_mcp', async function(req: any, res: any) {
     const result = await generateText({
       model: google(MODEL_NAME),
       tools: {
-        getNumber , addTodo , getTodoList ,
+        getNumber , addTodo , getTodoList , addItemPrice , saveWorkHour , getWorkList ,
+        addTask ,
       },
       maxSteps: 5,
       messages: [{ role: "user", content: input }],
