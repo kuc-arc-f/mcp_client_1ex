@@ -79,9 +79,9 @@ function Home() {
   <div className="container mx-auto my-2 px-8 bg-white">
     <div className="text-end">
     </div>
-      <hr className="my-2" />
       <h1 className="text-3xl text-gray-700 font-bold my-2"
       >Client-UI-5</h1>
+      <hr className="my-2" />
       <textarea id="input_text" 
       className="border border-gray-400 rounded-md px-3 py-2 w-full focus:outline-none focus:border-blue-500" 
       rows="4" 

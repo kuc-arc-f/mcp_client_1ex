@@ -1,7 +1,5 @@
 import { Link, Route, Routes } from 'react-router-dom'
 
-// Auto generates routes from files under ./pages
-// https://vitejs.dev/guide/features.html#glob-import
 const pages = import.meta.glob('./client/*.tsx', { eager: true })
 
 const routes = Object.keys(pages).map((path) => {
@@ -12,22 +10,10 @@ const routes = Object.keys(pages).map((path) => {
     component: pages[path].default,
   }
 })
-//console.log(routes);
-//
+
 export function App() {
   return (
     <>
-      <nav>
-        <ul>
-          {routes.map(({ name, path }) => {
-            return (
-              <li key={path}>
-                <Link to={path}>{name}</Link>
-              </li>
-            )
-          })}
-        </ul>
-      </nav>
       <Routes>
         {routes.map(({ path, component: RouteComp }) => {
           return (
@@ -40,4 +26,15 @@ export function App() {
   )
 }
 /*
+<nav>
+  <ul>
+    {routes.map(({ name, path }) => {
+      return (
+        <li key={path}>
+          <Link to={path}>{name}</Link>
+        </li>
+      )
+    })}
+  </ul>
+</nav>
 */
