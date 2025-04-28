@@ -18,5 +18,21 @@ mcp client + express + react ,  example
 ```
 npm run dev
 ```
+
+***
+### setup
+* .env
+
+```
+GOOGLE_GENERATIVE_AI_API_KEY="api-key"
+USER_NAME="user1@example.com"
+PASSWORD="123"
+```
+
+***
+* prompt
+```
+サイコロを振ってください。1から6までの整数を返してください。
+```
 ***
 
