@@ -9,6 +9,7 @@ import { addItemPrice } from '../tools/addItemPrice';
 import { saveWorkHour } from '../tools/saveWorkHour';
 import { getWorkList } from '../tools/getWorkList';
 import { addTask } from '../tools/addTask';
+import { getWeatherInfo } from '../tools/getWeatherInfo';
 
 const router = express.Router();
 const MODEL_NAME = "gemini-2.0-flash";
@@ -24,7 +25,7 @@ router.post('/send_mcp', async function(req: any, res: any) {
       model: google(MODEL_NAME),
       tools: {
         getNumber , addTodo , getTodoList , addItemPrice , saveWorkHour , getWorkList ,
-        addTask ,
+        addTask , getWeatherInfo , 
       },
       maxSteps: 5,
       messages: [{ role: "user", content: input }],
