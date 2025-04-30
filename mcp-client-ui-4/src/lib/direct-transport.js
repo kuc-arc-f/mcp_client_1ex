@@ -1,0 +1,1 @@
+var e=class{constructor(s){this.serverTransport=s}async start(){}async close(){}async send(s){this.serverTransport.onmessage?.(s)}},t=class{constructor(){this.clientTransport=new e(this)}async start(){}async close(){}async send(s){this.clientTransport.onmessage?.(s)}getClientTransport(){return this.clientTransport}};export{t as DirectServerTransport};
