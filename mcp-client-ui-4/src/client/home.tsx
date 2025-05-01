@@ -7,7 +7,6 @@ import chatUtil from './lib/chatUtil';
 import LibConfig from './lib/LibConfig';
 
 import { TimeServer } from "../mcp-servers/get-current-time";
-import { TimeServer } from "../mcp-servers/get-current-time";
 import { Mcp2exTestServer } from "../mcp-servers/mcp-2ex-test.js";
 import { Mcp3useCreate } from "../mcp-servers/mcp-3use-create";
 import type {
@@ -62,11 +61,6 @@ function Home() {
         inText = elem.value;
       };
       console.log("inText=", inText);
-      console.log("selectModel=", selectModel);
-      if(!selectModel){
-        alert("Error, model set")
-         return; 
-      }
       if(!inText){ return; }
       setSendText(inText);
       setIsLoading(true);
@@ -114,10 +108,9 @@ function Home() {
       </select>
     </div>    
     */}
-      <hr />
       <h1 className="text-3xl text-gray-700 font-bold my-2"
       >Client-UI-4</h1>
-      <hr />
+      <hr className="my-2" />
       <textarea id="input_text" 
       className="border border-gray-400 rounded-md px-3 py-2 w-full focus:outline-none focus:border-blue-500" 
       rows="4" 
@@ -133,7 +126,7 @@ function Home() {
         </div>
         <div className="flex-1 text-end p-2">
           <button id="button" onClick={() => chatStart()}
-          className="btn-blue"
+          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-4 rounded"
           >GO</button>
         </div>
       </div>

@@ -1,12 +1,15 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "ESNext",
     "module": "commonjs",
+    "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "noImplicitAny": true,
+    "sourceMap": true,
+    "baseUrl": ".",
     "outDir": "dist",
-    "strict": true
-  },
-  "include": ["src/**/*"],
-  "exclude": [
-    "./src/test/*", "node_modules", "doc",
-  ]
+    "moduleResolution": "node",
+    "resolveJsonModule": true
+  }
 }

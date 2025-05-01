@@ -1,5 +1,6 @@
 
-const { McpServer } = require ("@modelcontextprotocol/sdk/server/mcp.js");
+//const { McpServer } = require ("@modelcontextprotocol/sdk/server/mcp.js");
+import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 
 const server = new McpServer({
   name: "get-random-example",
@@ -22,5 +23,4 @@ server.tool(
   };
 });
 
-const getNumber = server;
-module.exports = { getNumber };
+export const getNumber = server;

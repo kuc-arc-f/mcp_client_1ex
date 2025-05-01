@@ -1,6 +1,6 @@
 
-const { McpServer } = require ("@modelcontextprotocol/sdk/server/mcp.js");
-const { z } = require('zod');
+import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import { z } from 'zod';
 
 const server = new McpServer({
   name: "addTodo-example",
@@ -15,7 +15,7 @@ server.tool(
   },
   async ({ text }) => {
     try {    
-      const url = process.env.API_URL;
+      const url = import.meta.env.VITE_API_URL;
       const item = {title: text, description:"" }
       const response = await fetch(url + "/api/todos/create" ,
         {
@@ -41,5 +41,6 @@ server.tool(
     }
 });
 
-const addTodo = server;
-module.exports = { addTodo };
+export const addTodo = server;
+//module.exports = { addTodo };
+

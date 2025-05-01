@@ -1,5 +1,6 @@
-const { DirectServerTransport } = require("./direct-transport");
-const { Client } = require("@modelcontextprotocol/sdk/client/index.js");
+import { DirectServerTransport } from "./direct-transport";
+//const { Client } = require("@modelcontextprotocol/sdk/client/index.js");
+import { Client } from "@modelcontextprotocol/sdk/client/index.js";
 
 /**
 *
@@ -7,7 +8,7 @@ const { Client } = require("@modelcontextprotocol/sdk/client/index.js");
 *
 * @return
 */
-const getMcpTools = async (servers) => {
+export const getMcpTools = async (servers) => {
   const tools = [];
   const functionMap = {};
   const clients = [];
@@ -48,7 +49,7 @@ const getMcpTools = async (servers) => {
 };
 
 
-const execQuery = async (
+export const execQuery = async (
   openai,
   model,
   mcpTools,
@@ -117,5 +118,3 @@ const execQuery = async (
     }
   }
 };
-
-module.exports = { getMcpTools , execQuery }
