@@ -3,6 +3,8 @@ import OpenAI from "openai";
 import { DirectServerTransport } from "./libs/direct-transport.js";
 import { Mcp2exTestServer } from "./mcp-servers/mcp-2ex-test.js";
 import { GetRandomNumber } from "./mcp-servers/get-random-number";
+import { getWeatherInfo } from "./mcp-servers/get-weather-info";
+
 import 'dotenv/config'
 import { createInterface } from "node:readline/promises";
 import { z } from "zod";
@@ -132,7 +134,7 @@ async function executeMcp(inText) {
     apiKey: "ollama",
   });
   const mcpTools = await getMcpTools([
-     Mcp2exTestServer, GetRandomNumber
+     Mcp2exTestServer, GetRandomNumber, getWeatherInfo ,
   ]);
   await query(openai, MODEL_NAME, mcpTools, message);
   await mcpTools.close();
