@@ -1,6 +1,7 @@
 import { generateText, tool } from "ai";
 import { z } from "zod";
 
+// サイコロを振ってください。1から6までの整数を返してください。
 export const getNumber = tool({
   // ツールの説明。
   description: "入力された面数のサイコロを振ります。",
